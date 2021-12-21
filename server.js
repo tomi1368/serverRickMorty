@@ -12,11 +12,18 @@ const locationRouter = require('./routes/locationRoutes')
 const UserRouter = require('./routes/userRoutes')
 const PrivateRouter = require("./routes/private")
 
+const url = "https://rickandmortysv.herokuapp.com"
+
+
 connectDB()
 app.use(express.json())
 app.use(cors())
 app.use(methodOverride())
 app.use(express.urlencoded({ extended: true }));
+
+app.get("https://rickandmortysv.herokuapp.com",(req,res)=>{
+    res.send("hola")
+})
 
 app.use("/characters",characterRouter)
 
