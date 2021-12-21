@@ -16,6 +16,7 @@ connectDB()
 app.use(express.json())
 app.use(cors())
 app.use(methodOverride())
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/characters",characterRouter)
 
