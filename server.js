@@ -26,18 +26,8 @@ app.use("/users", UserRouter)
 
 app.use("/private",PrivateRouter)
 
-app.use((err,req,res,next)=>{
-    if(res.headersSent){
-        return next(err)
-    }
-})
 
-
-const server = app.listen(PORT,(req,res)=>{
+app.listen(PORT,(req,res)=>{
     console.log(`Server up on Port ${PORT}`)
 })
 
-process.on("unhandledRejection",(err,promise)=>{
-    console.log(`Connection error ${err}`)
-    server.close(()=> process.exit(1))
-})
